@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Extensibility xmlns="urn:Chinags-Extensibility-1.0" Name="通软皮燕子开放插件" SymbolicName="Cirno.GS.Injection.Test" Version="1.0.0.0" StartLevel="24">
+  <License>
+    ULuQdHnvhrvUlZmzA5BCjYAK7Qd9kGYtaWzaNyalfGLllQno+WuOpN02bNnqtZBVy0CMsc5vHdGEC2CKn1Oo5d0/h0pezKKRK8pWwWVOkN42Slqjd15Zh/fIcKo6JYLaAWhUs1/NAGXPzLIp5GddHGaEEB9RuicntOi9fUa06YE=
+  </License>
+  <Activator Type="Cirno.GS.Injection.Test.Program"/>
+  <!-- The class which inherits interface 'IAddonActivator' from GS.Unitive.Framework. -->
+  <Runtime>
+    <Assembly Path="GCirno.GS.Injection.Test.dll" Share="true"/>
+  </Runtime>
+  <Services>
+  <!-- Services included in the dll. -->
+  </Services>
+</Extensibility>

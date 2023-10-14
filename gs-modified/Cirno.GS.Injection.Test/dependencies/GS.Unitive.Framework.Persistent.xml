@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GS.Unitive.Framework.Persistent</name>
+    </assembly>
+    <members>
+        <member name="M:GS.Unitive.Framework.Persistent.Custom.DataBulkCopyImpl.#ctor(System.String)">
+            <summary>
+            默认参数
+            KeepNulls , CheckConstraints , Default
+            </summary>
+            <param name="ConnectionString"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.Custom.DataBulkCopyImpl.SetOptions(System.Data.SqlClient.SqlBulkCopyOptions)">
+            <summary>
+            设置或覆盖SqlBulk的参数
+            </summary>
+            <param name="Options"></param>
+        </member>
+        <!-- 对于成员“M:GS.Unitive.Framework.Persistent.Custom.IDataBulkCopy.SetOptions(System.Data.SqlClient.SqlBulkCopyOptions)”忽略有格式错误的 XML 注释 -->
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.IDataBulkCopy.BatchSize">
+            <summary>
+            执行事务批次 默认为5000
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.IDataBulkCopy.BulkCopyTimeout">
+            <summary>
+            超时时间 默认30秒
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.IDataBulkCopy.onCompleted">
+            <summary>
+            完成的执行回调通知方法
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.IDataBulkCopy.onAbend">
+            <summary>
+            执行的异常终止的回调方法
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.Custom.IDataBulkCopy.CopyDataWriteServer``2(System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            执行复制数据写入数据库
+            </summary>
+            <typeparam name="T">目标模型 适用于UnitiveObject继承对象模型</typeparam>
+            <typeparam name="S">源数据模型集合</typeparam>
+            <param name="Sources">所要入库的数据集合</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.Custom.IDataBulkCopy.CopyDataWriteServer``1(System.Data.DataTable)">
+            <summary>
+            执行复制数据写入数据库
+            </summary>
+            <typeparam name="T">目标模型 适用于UnitiveObject继承对象模型</typeparam>
+            <param name="Sources">所要入库的数据集合</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.Custom.IDataBulkCopy.CopyDataWriteServer(System.String,System.Data.DataTable)">
+            <summary>
+            执行复制数据写入数据库
+            </summary>
+            <param name="TableName">目标表名</param>
+            <param name="Sources">所要入库的数据集合</param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeArg">
+            <summary>
+            对象变更事件参数
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeArg.ChangeObjectType">
+            <summary>
+            变更模型对象类型
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeArg.ChangeEnum">
+            <summary>
+            变更类型枚举
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeArg.OldObject">
+            <summary>
+            之前的对象实例
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeArg.NewObject">
+            <summary>
+            新的对象实例
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeArg.OwnSession">
+            <summary>
+            会话
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChnangeEventHandler">
+            <summary>
+            模型对象变更事件通知
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeEnum">
+            <summary>
+            模型对象变更类型枚举
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeEnum.Created">
+            <summary>
+            创建
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeEnum.Saved">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Persistent.Custom.UnitiveObjectChangeEnum.Deleted">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Persistent.IDataAccessPolicy">
+            <summary>
+            数据访问策略接口
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Persistent.IObjectSpace">
+            <summary>
+            数据空间接口
+            该接口应用框架的数据过滤策略
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.IObjectSpace.Dispose">
+            <summary>
+            释放对象
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.IObjectSpace.ChannelName">
+            <summary>
+            插件数据通道名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.IObjectSpace.DefaultChannelMode">
+            <summary>
+            设置默认的通道模式
+            默认为单例模式.即插件内共享同一个数据会话.
+            多例模式,每次得到Session或UnitOfWork都是新建一条数据会话.
+            不同会话并不会加快数据访问或存储速度.但却是线程安全的.
+            大量并发时,可以增加与数据库的连接数.但需要慎用.
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.IObjectSpace.Session">
+            <summary>
+            单例模式的会话 
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.IObjectSpace.UnitOfWork">
+            <summary>
+            单例模式的事务会话
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.IObjectSpace.GetSession(GS.Unitive.Framework.Core.ChannelMode)">
+            <summary>
+            指定模式获得会话
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.IObjectSpace.GetUnitOfWork(GS.Unitive.Framework.Core.ChannelMode)">
+            <summary>
+            指定模式获得事务会话
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.IObjectSpace.AutoCreateOption">
+            <summary>
+            创建模式 默认为更新数据库
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.IObjectSpace.UpdateDataSchema">
+            <summary>
+             更新整个插件所注册的数据模型集.
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.IObjectSpace.UpdateDataSchema(System.Reflection.Assembly[])">
+            <summary>
+            需要更新所指定的数据集时用.用于动态生成或适时生成.
+            </summary>
+            <param name="ModelAssembly"></param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Persistent.ObjectSpaceManager">
+            <summary>
+            数据对象管理
+            用于创建基于插件的数据域的管理实例
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.ObjectSpaceManager.#ctor(GS.Unitive.Framework.Core.ChannelMode)">
+            <summary>
+            初始化连接缓存
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.ObjectSpaceManager.CreateObjectSpace(GS.Unitive.Framework.Core.IAddonContext,System.String,System.Int32)">
+            <summary>
+            创建一个数据对象空间管理实例
+            </summary>
+            <param name="context">插件上下文</param>
+            <param name="ChannlName">通道名称</param>
+            <returns>数据空间</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.ObjectSpaceManager.ValidateRegistModels(ExtensibilityChannel)">
+            <summary>
+            检查通道模型注册
+            </summary>
+            <param name="channal"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.ObjectSpaceManager.RegistInstalledModels">
+            <summary>
+            注册所有已安装插件的模型程序集
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Persistent.ObjectSpaceManager.CreateCopySpace(GS.Unitive.Framework.Core.IAddonContext,System.String)">
+            <summary>
+            创建一个数据快速复制的管理实例
+            </summary>
+            <param name="context">插件上下文</param>
+            <param name="ChannlName">通道名称</param>
+            <returns></returns>
+        </member>
+        <member name="E:GS.Unitive.Framework.Persistent.ObjectSpaceManager.OnObjectPropertyChanged">
+            <summary>
+            模型对象属性变更通知
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Persistent.ObjectSpaceManager.Globle_IsUpdateDataSchema">
+            <summary>
+            全局设定是否开启更新模型域 默认开启
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Data.Xpo.UnitiveObject">
+            <summary>
+            通用数据模型对象
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Data.Xpo.UnitiveObject.Creator">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Data.Xpo.UnitiveObject.CreationTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Data.Xpo.UnitiveObject.Organization">
+            <summary>
+            创建时的用户所在机构
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Data.Xpo.UnitiveObject.Section">
+            <summary>
+            创建时的用户所在范围
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Data.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Data.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Data.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Data.Properties.Resources.ExpiredTextLong">
+             <summary>
+               查找类似 Your trial period has expired.
+            Visit www.GS.Unitive.Framework.com to purchase a copy and activate your license. 的本地化字符串。
+             </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Data.Properties.Resources.ExpiredTextShort">
+            <summary>
+              查找类似 Expired. 的本地化字符串。
+            </summary>
+        </member>
+    </members>
+</doc>

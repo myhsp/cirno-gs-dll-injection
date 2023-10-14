@@ -1,0 +1,476 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GS.Unitive.Framework.Security</name>
+    </assembly>
+    <members>
+        <member name="T:GS.Unitive.Framework.Security.Core.UnitiveFilterAttribute">
+            <summary>
+            数据过滤器属性
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveFilterAttribute.FilterID">
+            <summary>
+            过滤器ID
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveFilterAttribute.FilterModelType">
+            <summary>
+            右侧数据过滤模型类型
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveFilterAttribute.#ctor(System.String,System.Type)">
+            <summary>
+            定义一个参数模型类型的过滤器,该过滤器定义为过滤的右侧数据范围
+            </summary>
+            <param name="FilterID">过滤器ID</param>
+            <param name="FilterModelType">右侧数据过滤模型类型 必须为XPO的XPBaseObject及其继承类型</param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Core.IAccessSecurity">
+            <summary>
+            访问权限接口
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.IAccessSecurity.FailedRedirect">
+            <summary>
+            获得一个权限不允许查看的重定向
+            如果用户登录后该视图不允许查看,则会转向该实例
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.IAccessSecurity.LoginRedirect">
+            <summary>
+            获得一个登录的重定向
+            如果用户没有得到登录票证则转向该实例
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IAccessSecurity.GetUserContext(System.Object)">
+            <summary>
+            通过Http上下文获得用户上下文接口
+            </summary>
+            <param name="httpContext">Http上下文</param>
+            <returns>用户上下文接口</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IAccessSecurity.ViewAccess(GS.Unitive.Framework.Security.Core.IUserContext,System.Object)">
+            <summary>
+            获得用户的视图访问权限
+            </summary>
+            <param name="userContext">用户上下文接口</param>
+            <param name="viewSymoblicID">视图唯一ID</param>
+            <returns>是否允许访问的权限</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IAccessSecurity.ViewOperatorDomain(GS.Unitive.Framework.Security.Core.IUserContext,System.Type,System.Object)">
+            <summary>
+            获得该视图的操作模型领域
+            通常是指该视图的操作权限.
+            </summary>
+            <param name="userContext">用户上下文接口</param>
+            <param name="SecurityModelType">权限模型类型</param>
+            <param name="viewSymoblicID">视图唯一ID</param>
+            <returns>操作模型领域的实例 该实例应已获得授权填充</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IAccessSecurity.ViewOperatorSecrity(GS.Unitive.Framework.Security.Core.IUserContext,System.String,System.Object)">
+            <summary>
+            获得用户的视图操作权限是否允许
+            </summary>
+            <param name="userContext">用户上下文</param>
+            <param name="ExcuteName">执行名称</param>
+            <param name="viewID">视图ID</param>
+            <returns>是否允许</returns>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Core.IUnitiveDataSecurity">
+            <summary>
+            数据权限接口 用于插件创建该接口的服务
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IUnitiveDataSecurity.SecurityCriteriaOperator``1(GS.Unitive.Framework.Security.Core.IUserContext,System.String)">
+            <summary>
+            权限过滤操作对象
+            </summary>
+            <typeparam name="T">数据模型泛型</typeparam>
+            <param name="UserContext">用户上下文</param>
+            <param name="FilterID">过滤器的ID</param>
+            <returns>GroupOperator</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IUnitiveDataSecurity.SecurityCriteriaOperator``1(System.Guid,System.String)">
+            <summary>
+            权限过滤操作对象
+            </summary>
+            <typeparam name="T">数据模型泛型</typeparam>
+            <param name="UserKey">用户的Key,用于无法通过Cookie用户上下文的环境</param>
+            <param name="FilterID">过滤器的ID</param>
+            <returns>GroupOperator</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IUnitiveDataSecurity.ReBuildCache">
+            <summary>
+            重建缓存 如果缓存不存在也会创建
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Core.IUnitiveSecurityDomain">
+            <summary>
+            权限领域模型
+            空接口.标记接口
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Core.IUserContext">
+            <summary>
+            用户上下文
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.IUserContext.UserKey">
+            <summary>
+            获取用户的Key
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.IUserContext.UserOrganization">
+            <summary>
+            获取用户当前所在的机构
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.IUserContext.UserSection">
+            <summary>
+            获取用户当前所在的部门
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IUserContext.LoginState">
+            <summary>
+            用户登录状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IUserContext.LogoutSign">
+            <summary>
+            登出标记
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.IUserContext.LoginSign(System.Guid,System.DateTime)">
+            <summary>
+            登录标记
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager">
+            <summary>
+            权限管理器
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.#ctor">
+            <summary>
+            创建权限管理器实例
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.Init">
+            <summary>
+            收集视图上的权限标签
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.Refresh">
+            <summary>
+            刷新权限管理器缓存
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.Clear">
+            <summary>
+            清空权限管理器缓存
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.GetViews">
+            <summary>
+            得到所有的视图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.GetView(System.String)">
+            <summary>
+            按插件ID得到所注册第一个视图信息
+            </summary>
+            <param name="SymbolicID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.GetViewByDisplayName(System.String)">
+            <summary>
+            按插件名称获得所有的插件视图描述
+            </summary>
+            <param name="DisplayName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.GetOperators(GS.Unitive.Framework.Security.Description.UnitiveViewDescription)">
+            <summary>
+            按视图获得授权操作描述
+            </summary>
+            <param name="view"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.GetModel">
+            <summary>
+            获得模块描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.GetFilterGroup">
+            <summary>
+            获得过滤器的分组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.Resolvr">
+            <summary>
+            解析页面 收集页面信息及过滤规则
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.ViewDescResolvr(GS.Unitive.Framework.Core.IAddon,System.Collections.Generic.List{GS.Unitive.Framework.Security.Core.UnitiveViewAttribute},System.Collections.Generic.List{GS.Unitive.Framework.Security.Core.UnitiveFilterAttribute})">
+            <summary>
+            视图描述解析函数
+            </summary>
+            <param name="addon"></param>
+            <param name="viewAttList"></param>
+            <param name="filterAttList"></param>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveSecurityManager.UserContext">
+            <summary>
+            用户上下文
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Core.UnitiveOperatorAttribute">
+            <summary>
+            操作标记点特性
+            在权限域的定义中使用,或者直接在被标记为功能的类中标记
+            值类型支持Boolean, 字段或被封装的属性.
+            如果为枚举型,则需要设置枚举默认值为None.
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveOperatorAttribute.OperatorName">
+            <summary>
+            操作名称
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveOperatorAttribute.#ctor(System.String)">
+            <summary>
+            操作点特性
+            </summary>
+            <param name="OperatorName">操作点名称</param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Core.UserContextBase">
+            <summary>
+            用户上线基类 该类为虚拟类
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UserContextBase.#ctor(System.Web.HttpContextBase)">
+            <summary>
+            初始化用户上下文
+            </summary>
+            <param name="contextBase">HTTP上下文基类对象</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UserContextBase.#ctor(System.Web.HttpContext)">
+            <summary>
+            初始化用户上下文
+            </summary>
+            <param name="context">HTTP上下文对象</param>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UserContextBase.UserKey">
+            <summary>
+            用户主键
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UserContextBase.LoginSign(System.Guid,System.DateTime)">
+            <summary>
+            标识用户登录
+            </summary>
+            <param name="UserKey">用户主键</param>
+            <param name="period">时间周期 1小时或半小时 </param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UserContextBase.LogoutSign">
+            <summary>
+            登出确认 清除Cookies
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UserContextBase.LoginState">
+            <summary>
+            登陆状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UserContextBase.UserOrganization">
+            <summary>
+            获取用户的所在机构
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UserContextBase.UserSection">
+            <summary>
+            获取用户的所在范围
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UserContextBase.CookiePath">
+            <summary>
+            设置存储的cookie的路径
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UserContextBase.UserKeyName">
+            <summary>
+            设置存储在cookie中用户ID键值名称
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Core.UnitiveViewAttribute">
+            <summary>
+            视图标签
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveViewAttribute.SymbolicID">
+            <summary>
+            得到视图ID
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveViewAttribute.DisplayName">
+            <summary>
+            得到视图名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveViewAttribute.PageUrl">
+            <summary>
+            页面路径
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveViewAttribute.SecurityModelType">
+            <summary>
+            权限模型类型
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Core.UnitiveViewAttribute.DependID">
+            <summary>
+            依赖视图ID
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveViewAttribute.#ctor(System.String,System.String,System.String,System.Type)">
+            <summary>
+            视图标签
+            </summary>        
+            <param name="DisplayName">显示名称</param>
+            <param name="PageUrl">页面路径</param>
+            <param name="SymbolicID">唯一ID</param>
+            /// <param name="SecurityModelType">自定义权限模型类型</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Security.Core.UnitiveViewAttribute.#ctor(System.String,System.String,System.String,System.Type,System.String)">
+            <summary>
+            视图标签
+            </summary>
+            <param name="DisplayName">视图名称</param>
+            <param name="PageUrl">视图路径</param>
+            <param name="SymbolicID">视图ID</param>
+            <param name="SecurityModelType">模型域类型</param>
+            <param name="DependID">依赖页面ID</param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Description.UnitiveFilterDescription">
+            <summary>
+            视图过滤权限描述
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveFilterDescription.FilterID">
+            <summary>
+            唯一ID
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveFilterDescription.FilterModelType">
+            <summary>
+            数据模型类型
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Description.UnitiveFilterGroupDescription">
+            <summary>
+            过滤器分组描述
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveFilterGroupDescription.FilterModelType">
+            <summary>
+            过滤器的模型类型
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveFilterGroupDescription.Filters">
+            <summary>
+            分组的过滤器
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Description.UnitiveModelDescription">
+            <summary>
+            权限模型描述对象
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveModelDescription.ModelType">
+            <summary>
+            权限模型对象类型
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveModelDescription.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Description.UnitiveOperatorDescription">
+            <summary>
+            操作权限描述
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveOperatorDescription.OperatorDisplayName">
+            <summary>
+            权限显示名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveOperatorDescription.OperatorName">
+            <summary>
+            权限名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveOperatorDescription.OperatorType">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveOperatorDescription.OperatorValue">
+            <summary>
+            操作值
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Security.Description.UnitiveViewDescription">
+            <summary>
+            视图描述
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveViewDescription.SymbolicID">
+            <summary>
+            视图ID
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveViewDescription.DisplayName">
+            <summary>
+            视图名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveViewDescription.PageUrl">
+            <summary>
+            页面路径
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveViewDescription.AddonName">
+            <summary>
+            插件名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveViewDescription.AddonSymbolicName">
+            <summary>
+            插件唯一名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveViewDescription.DependSymbolcID">
+            <summary>
+            视图依赖视图ID
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveViewDescription.ViewOperators">
+            <summary>
+            试图操作权限
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Security.Description.UnitiveViewDescription.Filters">
+            <summary>
+            视图过滤权限设定
+            </summary>
+        </member>
+    </members>
+</doc>

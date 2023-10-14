@@ -1,0 +1,1503 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GS.Unitive.Framework</name>
+    </assembly>
+    <members>
+        <member name="F:GS.Unitive.Framework.Core.AddonWatcher._enable">
+            <summary>
+            是否启用。
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.AddonWatcher._fileSystemWatcher">
+            <summary>
+            侦听文件系统。
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.AddonWatcher.Enable">
+            <summary>
+            是否启用。
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonWatcher.Start">
+            <summary>
+            启动。
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonWatcher.Stop">
+            <summary>
+            停止。
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonWatcher.ResetRuntime(System.Object)">
+            <summary>
+            重置插件。
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.ISoftDog">
+            <summary>
+            软件狗的接口
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.ISoftDog.ReadLicense(System.String)">
+            <summary>
+            通过加密方式获取到加密过的公钥串
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.UnitiveAssemblyLoader">
+            <summary>
+            程序集加载器
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.UnitiveAssemblyLoader.AssembliesTable">
+            <summary>
+            容器保存插件名称以及它的程序集存放路径
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.CoreManager">
+            <summary>
+            内核管理器
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.IntercativeManager">
+            <summary>
+            交互数据管理器
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.LicenseValidation">
+            <summary>
+            授权验证
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.LicenseValidation.softDog">
+            <summary>
+            加密狗接口实现类
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.ChannelMode">
+            <summary>
+            通道模式
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.ChannelMode.Singleton">
+            <summary>
+            单例模式
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.ChannelMode.Multiton">
+            <summary>
+            普通多例模式
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.ChannelMode.WebMultiton">
+            <summary>
+            基于Web的多例模式
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.ChannelMode.MvcMultiton">
+            <summary>
+            基于MVC的多例模式
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.ChannelMode.Pool">
+            <summary>
+            连接池模式
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.Addon">
+            <summary>
+            插件的实例
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonContext.CreateIntercativeData``1(System.String)">
+            <summary>
+            创建交互数据
+            </summary>
+            <typeparam name="T">指定类型</typeparam>
+            <param name="dataKey">交互数据主键</param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.AddonRuntime">
+            <summary>
+             插件运行时
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.#ctor">
+            <summary>
+            插件运行时
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.#ctor(System.Boolean)">
+            <summary>
+            初始化插件运行时,需要设置是否打开影像模式
+            </summary>
+            <param name="EnableShadow"></param>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.AddonRuntime.Instance">
+            <summary>
+            得到当前运行时实例
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.Start">
+            <summary>
+            启动模块运行时 默认从程序的Addons目录加载插件
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.Start(System.String)">
+            <summary>
+            启动模块运行时
+            </summary>
+            <param name="AddonsDirectoryName">插件目录名称</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.ReStart">
+            <summary>
+            在运行启动后,重新启动运行时
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.Stop">
+            <summary>
+            停止的插件运行时.释放资源
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.GetInstalledAddons">
+            <summary>
+            得到所有已正确解析和安装的插件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.GetHostMainInstance``1">
+            <summary>
+            得到所有的宿主程序的主界面实例
+            </summary>
+            <typeparam name="T">宿主界面类型</typeparam>
+            <returns>实例列表</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.GetFirstDefaultHostMain``1">
+            <summary>
+            得到默认的宿主程序的主界面实例
+            </summary>
+            <typeparam name="T">宿主界面类型</typeparam>
+            <returns>界面实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.GetFirstOrDefaultService``1">
+            <summary>
+            得到服务的默认实例
+            </summary>
+            <typeparam name="T">服务</typeparam>
+            <returns>服务实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.GetServices``1(System.String)">
+            <summary>
+            得到插件的所有该类型的服务实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="addonSymbolicName">插件名称</param>
+            <returns>服务实例列表</returns>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.AddonRuntime.LogWriter">
+            <summary>
+             日志记录器
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onRuntimeStopping">
+            <summary>
+            插件运行时停止的事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onRuntimeStarting">
+            <summary>
+            运行时开始时的事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onRuntimeCompleted">
+            <summary>
+            运行时全部完成时事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onAddonStarting">
+            <summary>
+            插件开始事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onAddonInstall">
+            <summary>
+            插件安装事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onAddonResolvr">
+            <summary>
+            插件解析事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onAddonActive">
+            <summary>
+            插件激活时事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onAddonStoping">
+            <summary>
+            插件停止的事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.AddonRuntime.onAddonUninstall">
+            <summary>
+            插件卸载事件
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.GetReferencedAssemblies(System.String)">
+            <summary>
+            得到插件所引用的程序集列表
+            </summary>
+            <param name="AddonSymbolicName">插件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.GetReferencedAssemblies">
+            <summary>
+            得到程序集列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.GetReferencedAssembly(System.String)">
+            <summary>
+            按程序集名称查找
+            </summary>
+            <param name="AssemblyName">程序集名称</param>
+            <returns></returns>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.AddonRuntime.DataSpaces">
+            <summary>
+            数据空间配置对象
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.Dispose">
+            <summary>
+            释放
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.AddonRuntime.CreateIntercative``1(System.String)">
+            <summary>
+            创建公共交互区
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="dataKey">数据键值</param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.AddonState">
+            <summary>
+            插件状态
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.AddonState.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.AddonState.Installed">
+            <summary>
+            已安装
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.AddonState.Resolved">
+            <summary>
+            成功解析
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.AddonState.Starting">
+            <summary>
+            正在启动
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.AddonState.Active">
+            <summary>
+            处于运行状态
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.AddonState.Stopping">
+            <summary>
+            正在停止
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.AddonState.Uninstalled">
+            <summary>
+            已经卸载
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.AddonType">
+            <summary>
+            插件类型
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.Extension">
+            <summary>
+            扩展信息
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.Extension.Owner">
+            <summary>
+            插件信息
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.Extension.Data">
+            <summary>
+            扩展数据
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.Extension.PointName">
+            <summary>
+            扩展点名称
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.ExtensionPoint">
+            <summary>
+            插件的扩展点
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.ExtensionPoint.#ctor">
+            <summary>
+            初始化插件扩展点
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.ExtensionPoint.Name">
+            <summary>
+            扩展点的名称
+            一般来说该名称应该是插件的一个扩展信息的类名
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.ExtensionPoint.Owner">
+            <summary>
+            所属插件
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.ExtensionPoint.Data">
+            <summary>
+            描述数据
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.ExtensionPoint.Extensions">
+            <summary>
+            扩展点的扩展信息
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.IAddon">
+            <summary>
+            表示为一个插件
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.AddonID">
+            <summary>
+            插件的唯一ID,该ID需要从插件认证平台得到.并在插件的XML描述文件中明确写明.
+            即做为唯一ID,又作为插件接入认证校验.
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.Context">
+            <summary>
+            插件的上下文对象
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.Location">
+            <summary>
+            插件的安装位置
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.Name">
+            <summary>
+            插件名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.StartLevel">
+            <summary>
+            启动级别.越小越早启动.
+            理论上启动级别可以任意设置.但插件还是存在依赖的关系.
+            比如需要获取的接口服务.
+            所以大致分为5个层级.0-20 系统级 21-40 服务级 41-60 业务级 61-80 统计级 81-99 其他级
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.State">
+            <summary>
+            插件的状态
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.SymbolicName">
+            <summary>
+            插件的唯一名称
+            该名称需要在插件认证平台校验,并依此得到插件ID.
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.Version">
+            <summary>
+            插件版本.
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddon.Start">
+            <summary>
+            启动该插件.对应插件的激活方法的Start
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddon.Stop">
+            <summary>
+            停止该插件,对应插件的激活方法的Stop
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddon.Uninstall">
+            <summary>
+            停止并卸载插件
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddon.Extensibility">
+            <summary>
+            插件的映射信息
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.IAddonActivator">
+            <summary>
+            插件激活器 是插件唯一入口 用于在插件启动或停止时执行相关操作
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonActivator.Start(GS.Unitive.Framework.Core.IAddonContext)">
+            <summary>
+            开始
+            </summary>
+            <param name="Context">插件的上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonActivator.Stop(GS.Unitive.Framework.Core.IAddonContext)">
+            <summary>
+            停止
+            </summary>
+            <param name="Context">插件的上下文</param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.IAddonContext">
+            <summary>
+            插件的上下文
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.AddExtensionPoint(System.String)">
+            <summary>
+            新增扩展点 
+            用于代码方式添加一个扩展点
+            </summary>
+            <param name="PointName">扩展点名称</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetExtensions">
+            <summary>
+            得到该插件所有的扩展点的扩展
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetExtensionByPointName(System.String)">
+            <summary>
+            得到该插件下的扩展点的扩展
+            </summary>
+            <param name="PointName">扩展点名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.AddService``1(``0)">
+            <summary>
+            添加当前插件服务
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="serviceInstance"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.AddService(System.Object,System.Type[])">
+            <summary>
+            添加当前插件的服务
+            该服务实例实现或继承了服务类型列表中的类型
+            </summary>
+            <param name="serviceInstance">服务实例</param>
+            <param name="serviceType">服务类型列表</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.RemoveService``1">
+            <summary>
+            删除当前插件所有的服务及其实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.RemoveService(System.Type)">
+            <summary>
+            删除当前插件指定类型的服务及其实例
+            </summary>
+            <param name="serviceType">服务类型</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.RemoveServiceInstance(System.Type,System.Object)">
+            <summary>
+            删除当前插件指定类型的服务及其实例
+            </summary>
+            <param name="serviceType">服务类型</param>
+            <param name="serviceInstance">服务实例</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetFirstOrDefaultService``1(System.String)">
+            <summary>
+            通过插件的唯一名称获得插件中服务类型的默认实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="addonSymbolicName">插件的唯一名称</param>
+            <returns>服务实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetFirstOrDefaultService(System.String,System.Type)">
+            <summary>
+            通过插件的唯一名称获得插件中服务类型的默认实例
+            </summary>
+            <param name="addonSymbolicName">插件唯一名称</param>
+            <param name="serviceType">服务类型</param>
+            <returns>服务实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetFirstOrDefaultService(System.String,System.String)">
+            <summary>
+            通过插件的唯一名称获得插件中服务类型的默认实例
+            </summary>
+            <param name="addonSymbolicName">插件的唯一名称</param>
+            <param name="serviceTypeName">服务类型名称</param>
+            <returns>服务实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetService``1(System.String)">
+            <summary>
+            通过插件的唯一名称获得该插件的服务类型的所有实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="addonSymbolicName">插件的唯一名称</param>
+            <returns>实例列表</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetService(System.String,System.Type)">
+            <summary>
+            通过插件的唯一名称获得该插件的服务类型的所有实例
+            </summary>
+            <param name="addonSymbolicName">插件的唯一名称</param>
+            <param name="serviceType">服务类型</param>
+            <returns>实例列表</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetService(System.String,System.String)">
+            <summary>
+            通过插件的唯一名称获得该插件的服务类型的所有实例
+            </summary>
+            <param name="addonSymbolicName">插件的唯一名称</param>
+            <param name="serviceTypeName">服务类型名称</param>
+            <returns>实例列表</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.AddDefaultHostMain``1(``0)">
+            <summary>
+            注册一个宿主程序的默认主界面程序的实例
+            </summary>
+            <typeparam name="T">实例类型</typeparam>
+            <param name="mainInstance">主界面实例</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GetAddonStateBySymbolicName(System.String)">
+            <summary>
+            根据插件唯一名称获得它目前的状态.
+            </summary>
+            <param name="symbolicName">插件唯一名称</param>
+            <returns>插件状态</returns>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddonContext.Addon">
+            <summary>
+            当前插件的实例
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.IAddonContext.Logger">
+            <summary>
+            系统日志
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.LoadResource``1(System.String)">
+            <summary>
+            在插件的运行时中查找资源
+            </summary>
+            <typeparam name="T">资源类型 字符 String 图片文件为 Steam  </typeparam>
+            <param name="ResourceName">资源名</param>
+            <returns>资源对象</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.LoadClassInstance(System.String,System.String)">
+            <summary>
+            创建插件下的类型的实例
+            该类型必须是在所属插件下的程序集且被共享
+            </summary>
+            <param name="ClassTypeName">类型名称</param>
+            <param name="NameSpace">名称空间</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.LoadClassInstance(System.String,System.String,System.String)">
+            <summary>
+            创建具体指定插件下类型的实例
+            该类型必须是在所属插件下的程序集且被共享
+            </summary>
+            <param name="AddonSymbolicName">插件唯一名称</param>
+            <param name="ClassTypeName"></param>
+            <param name="NameSpace">名称空间</param>
+            <returns></returns>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.IAddonContext.AddonStateChange">
+            <summary>
+            插件变动事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.IAddonContext.ExtensionChange">
+            <summary>
+            扩展变动事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.IAddonContext.ExtensionPointChange">
+            <summary>
+            扩展点变动事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.IAddonContext.ServiceChange">
+            <summary>
+            服务变动事件
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.CreateIntercativeData``1(System.String)">
+            <summary>
+            创建交互数据
+            </summary>
+            <typeparam name="T">交互数据类型</typeparam>
+            <param name="dataKey">数据主键</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.RegistChangeCallback(System.String,GS.Unitive.Framework.Event.IntercativeChangedHandler)">
+            <summary>
+            注册数据更改事件
+            </summary>
+            <param name="dataKey">交互数据主键</param>
+            <param name="changeCallback">接收事件方法</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.RemoveChangeCallback(System.String,GS.Unitive.Framework.Event.IntercativeChangedHandler)">
+            <summary>
+            移除数据更改事件
+            </summary>
+            <param name="dataKey">交互数据主键</param>
+            <param name="changeCallback">接收事件方法</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.IntercativeData``1(System.String,``0)">
+            <summary>
+            填充交互的数据
+            如果填充的数据非创建类型,则会填充失败
+            </summary>
+            <param name="dataKey">数据主键</param>
+            <param name="dataValue">数据值对象</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.IntercativeData(System.String,System.Type@)">
+            <summary>
+            获取交互数据
+            </summary>
+            <param name="dataKey">数据主键</param>
+            <param name="dataType">数据类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.IntercativeData(System.String)">
+            <summary>
+            获取交互数据
+            </summary>
+            <param name="dataKey">数据主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.RemoveIntercative(System.String)">
+            <summary>
+            移除交互数据
+            </summary>
+            <param name="dataKey">数据主键</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.DictionaryValue(System.String,System.String)">
+            <summary>
+            获取字典值
+            </summary>
+            <param name="DictName">字典名称</param>
+            <param name="KeyName">见名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.StructureData(System.String)">
+            <summary>
+            获取自定义结构的一个数据集
+            </summary>
+            <param name="structName">结构名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonContext.GlobalSetting(System.String,System.Boolean@)">
+            <summary>
+            全局设置的值
+            </summary>
+            <param name="globalKey">设置的全局值</param>
+            <param name="IsExist">如果不存在则返回false</param>
+            <returns></returns>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.IAddonManager">
+            <summary>
+            插件管理器
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonManager.InstallAddon(GS.Unitive.Framework.Core.Addon)">
+            <summary>
+            从指定的目录获得插件的信息,并生成插件信息实例存放.
+            </summary>
+            <param name="addon">插件实例</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonManager.UninstalAddon(GS.Unitive.Framework.Core.Addon)">
+            <summary>
+            卸载一个插件.
+            </summary>
+            <param name="addon"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonManager.GetAllAddons">
+            <summary>
+            获得现在所有注册的插件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonManager.GetAddonBySymbolicName(System.String)">
+            <summary>
+            根据插件唯一名称获得插件
+            </summary>
+            <param name="symbolicName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonManager.Start(System.String)">
+            <summary>
+            启动指定插件
+            </summary>
+            <param name="symbolicName"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IAddonManager.Stop(System.String)">
+            <summary>
+            停止指定插件
+            </summary>
+            <param name="symbolicName"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.AddExtension(System.String,GS.Unitive.Framework.Core.Extension)">
+            <summary>
+            添加扩展
+            </summary>
+            <param name="point">扩展点名称</param>
+            <param name="extension">扩展</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.AddExtensionPoint(GS.Unitive.Framework.Core.ExtensionPoint)">
+            <summary>
+            添加扩展点
+            </summary>
+            <param name="point">扩展点</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.AddExtensionPoint(System.String,GS.Unitive.Framework.Core.IAddon)">
+            <summary>
+            添加扩展点
+            </summary>
+            <param name="name">扩展点名称</param>
+            <param name="owner">所属插件</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.GetExtensionPoints">
+            <summary>
+            得到所有扩展点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.GetExtensionPoints(GS.Unitive.Framework.Core.IAddon)">
+            <summary>
+            得到插件下的扩展点
+            </summary>
+            <param name="addon">插件</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.GetExtensions(System.String)">
+            <summary>
+            得到扩展点的扩展
+            </summary>
+            <param name="point">扩展点名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.RemoveExtension(System.String,GS.Unitive.Framework.Core.IAddon)">
+            <summary>
+            移除扩展
+            </summary>
+            <param name="point">扩展点名称</param>
+            <param name="owner">扩展所属插件</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.RemoveExtensionPoint(System.String)">
+            <summary>
+            移除扩展点
+            </summary>
+            <param name="point">扩展点名称</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IExtensionManager.RemoveExtensionPoint(GS.Unitive.Framework.Core.IAddon)">
+            <summary>
+            移除扩展点
+            </summary>
+            <param name="owner">所属插件</param>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.IExtensionManager.ExtensionChanged">
+            <summary>
+            扩展变动事件
+            </summary>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.IExtensionManager.ExtensionPointChanged">
+            <summary>
+            扩展点变动事件
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.AddService(GS.Unitive.Framework.Core.IAddon,System.Object,System.Type[])">
+            <summary>
+            添加服务
+            该实例实现了多个服务类型
+            </summary>
+            <param name="Addon">隶属插件</param>
+            <param name="serviceInstance">服务实例</param>
+            <param name="serviceTypes">服务实现的类型</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.AddService(GS.Unitive.Framework.Core.IAddon,System.Type,System.Object[])">
+            <summary>
+            添加服务
+            该服务类型有多个实现实例
+            </summary>
+            <param name="Addon">隶属插件</param>
+            <param name="serviceType">服务类型</param>
+            <param name="serviceInstances">服务的实例</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.AddService``1(GS.Unitive.Framework.Core.IAddon,System.Object[])">
+            <summary>
+            添加服务
+            该服务类型有多个实现实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="Addon">隶属插件</param>
+            <param name="serviceInstances">服务的实例</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetFirstOrDefaultService``1">
+            <summary>
+            得到服务默认实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <returns>实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetFirstOrDefaultService(System.String,System.String)">
+            <summary>
+            得到插件的服务默认实例
+            </summary>
+            <param name="addonSymbolicName">插件唯一名称</param>
+            <param name="serviceTypeName">服务类型名称</param>
+            <returns>默认实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetFirstOrDefaultService``1(System.String)">
+            <summary>
+            得到插件的服务默认实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="addonSymbolicName">插件唯一名称</param>
+            <returns>默认实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetFirstOrDefaultService(System.String,System.Type)">
+            <summary>
+            得到插件的服务默认实例
+            </summary>
+            <param name="addonSymbolicName">插件唯一名称</param>
+            <param name="serviceType">服务类型</param>
+            <returns>默认实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.AddDefaultHostMain``1(``0)">
+            <summary>
+            添加一个默认的宿主主界面服务
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="mainInstance">实例</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetDefaultHostMain``1">
+            <summary>
+            得到一个默认的宿主主界面服务
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <returns>实例</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetHostMain``1">
+            <summary>
+            得到所有的宿主主界面
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetService(System.String,System.String)">
+            <summary>
+            得到插件的服务类型的所有实例
+            </summary>
+            <param name="addonSymbolicName">插件名称</param>
+            <param name="serviceTypeName">服务类型名称</param>
+            <returns>实例列表</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetService(System.String,System.Type)">
+            <summary>
+            得到插件的服务类型的所有实例
+            </summary>
+            <param name="addonSymbolicName">插件唯一名称</param>
+            <param name="serviceType">实例类型</param>
+            <returns>实例列表</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetService``1(System.String)">
+            <summary>
+            得到插件的服务类型的所有实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="addonSymbolicName">插件唯一名称</param>
+            <returns>实例列表</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.GetServices(System.String)">
+            <summary>
+            得到插件所有的实例
+            </summary>
+            <param name="addonSymbolicName">插件唯一名称</param>
+            <returns>服务的实例列表</returns>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.RemoveServiceInstance(GS.Unitive.Framework.Core.IAddon,System.Type,System.Object)">
+            <summary>
+            删除服务实例
+            </summary>
+            <param name="addon">隶属插件</param>
+            <param name="serviceType">服务类型</param>
+            <param name="serviceInstance">实例</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.RemoveServiceInstance``1(GS.Unitive.Framework.Core.IAddon,System.Object)">
+            <summary>
+            删除服务实例
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="addon">隶属插件</param>
+            <param name="serviceInstance">服务实例</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.RemoveService(GS.Unitive.Framework.Core.IAddon)">
+            <summary>
+            删除插件所有的服务
+            </summary>
+            <param name="addon">隶属插件</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.RemoveService(GS.Unitive.Framework.Core.IAddon,System.String)">
+            <summary>
+            删除插件的服务
+            </summary>
+            <param name="addon">隶属插件</param>
+            <param name="serviceTypeName">服务类型名称</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.RemoveService(GS.Unitive.Framework.Core.IAddon,System.Type)">
+            <summary>
+            删除插件的服务
+            </summary>
+            <param name="addon">隶属插件</param>
+            <param name="serviceType">服务类型</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Core.IServiceManager.RemoveService``1(GS.Unitive.Framework.Core.IAddon)">
+            <summary>
+            删除插件的服务
+            </summary>
+            <typeparam name="T">服务类型</typeparam>
+            <param name="addon">隶属插件</param>
+        </member>
+        <member name="E:GS.Unitive.Framework.Core.IServiceManager.ServiceStateChange">
+            <summary>
+            服务变更事件
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.ServiceInfo">
+            <summary>
+            表示一个插件可对外暴露的服务信息
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.ServiceInfo.ServiceName">
+            <summary>
+            服务名称 未指定默认为服务的类型名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.ServiceInfo.ServiceTypeName">
+            <summary>
+            服务类型名称
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.ServiceInfo.ServiceType">
+            <summary>
+            服务类型
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Core.ServiceInfo.Owner">
+            <summary>
+            服务隶属插件
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Core.ManagerState">
+            <summary>
+            管理器状态
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.ManagerState.Add">
+            <summary>
+            添加
+            </summary>
+        </member>
+        <member name="F:GS.Unitive.Framework.Core.ManagerState.Remove">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.IntercativeChangedHandler">
+            <summary>
+            交互更改事件
+            </summary>
+            <param name="args">交互参数</param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.IntercativeEventArgs">
+            <summary>
+            交换区事件参数
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.IntercativeEventArgs.IntercativeKey">
+            <summary>
+            交互数据主键
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.IntercativeEventArgs.OldValue">
+            <summary>
+            未更改前对象
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.IntercativeEventArgs.NewValue">
+            <summary>
+            更改后的对象
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.RuntimeEventHandler">
+            <summary>
+            运行时事件委托
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.AddonStateChangedEventArgs">
+            <summary>
+            插件状态变更事件参数
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.AddonStateChangedEventArgs.Handler">
+            <summary>
+            被改变状态的插件
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.AddonStateChangedEventArgs.CurrentState">
+            <summary>
+            当前插件的状态
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.AddonStateChangedEventArgs.ChangeState">
+            <summary>
+            改变的状态
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.AddonStateChangeHandler">
+            <summary>
+            插件状态变更事件委托
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.ExtensionManagerEventArgs">
+            <summary>
+            扩展管理器事件参数
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.ExtensionManagerEventArgs.point">
+            <summary>
+            扩展点
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.ExtensionManagerEventArgs.extension">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.ExtensionManagerEventArgs.State">
+            <summary>
+            管理状态
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.ExtensionManagerHandler">
+            <summary>
+            扩展事件委托类型
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.ServiceManagerEventArgs">
+            <summary>
+            服务管理事件对象
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.ServiceManagerEventArgs.Handler">
+            <summary>
+            执行插件
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.ServiceManagerEventArgs.ServiceType">
+            <summary>
+            服务类型
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.ServiceManagerEventArgs.ServiceInstance">
+            <summary>
+            服务实例
+            </summary>
+        </member>
+        <member name="P:GS.Unitive.Framework.Event.ServiceManagerEventArgs.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Event.ServiceStateChangeHandler">
+            <summary>
+            服务状态变更委托
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Exceptions.Error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Exceptions.Error.Not_Found_AddonInfomation(System.Int32)">
+            <summary>
+            没有找到插件信息的错误
+            </summary>
+            <param name="stata"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GS.Unitive.Framework.Fundation.SampleInject">
+            <summary>
+            简易注入器
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Fundation.SampleInject.InstacePropertyInject(System.Object,System.Type,System.Object)">
+            <summary>
+            建议属性注入
+            </summary>
+            <param name="inObject"></param>
+            <param name="inType"></param>
+            <param name="outObject"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GS.Unitive.Framework.Logging.ILogWriter">
+            <summary>
+            系统日志接口
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Logging.ILogWriter.Debug(System.String,System.Exception)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="debugException"></param>
+            <param name="debug"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Logging.ILogWriter.Error(System.String,System.Exception)">
+            <summary>
+            程序异常信息
+            </summary>
+            <param name="Error"></param>
+            <param name="errorException">可以为null</param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Logging.ILogWriter.Info(System.String,System.Exception)">
+            <summary>
+            程序打印信息
+            </summary>
+            <param name="infoException">可以为null</param>
+            <param name="InfoString"></param>
+        </member>
+        <member name="T:GS.Unitive.Framework.Logging.LogLiteWriter">
+            <summary>
+            小型日志书写器
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Logging.LogLiteWriter.Write(System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Logging.LogLiteWriter.Write(System.String,System.Object[])">
+            <summary>
+            写日志
+            </summary>
+            <param name="Message"></param>
+            <param name="param"></param>
+        </member>
+        <member name="M:GS.Unitive.Framework.Logging.LogLiteWriter.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:GS.Unitive.Framework.Logging.LogWriter.BeautyErrorMsg(System.Exception)">
+            <summary>
+            美化错误信息
+            </summary>
+            <param name="ex">异常</param>
+            <returns>错误信息</returns>
+        </member>
+        <member name="T:GS.Unitive.Framework.Schema.ConfigXmlResolver">
+            <summary>
+            插件配置文件解析类
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Schema.DabaSpaceXmlResolver">
+            <summary>
+            数据库空间配置XML解析类
+            </summary>
+        </member>
+        <member name="T:GS.Unitive.Framework.Schema.MapperXmlResolver">
+            <summary>
+            插件映射XML解析类
+            </summary>
+        </member>
+        <member name="T:Settings">
+            <remarks/>
+        </member>
+        <member name="P:Settings.Global">
+            <summary>
+            全局配置节点
+            </summary>
+        </member>
+        <member name="P:Settings.Dictionaries">
+            <summary>
+            字典节点
+            </summary>
+        </member>
+        <member name="P:Settings.Structures">
+            <summary>
+            自定义结构节点 会有多个自定义节点
+            </summary>
+        </member>
+        <member name="P:Settings.AddonName">
+            <summary>
+            配置文件的插件名称SymbolicName
+            </summary>
+        </member>
+        <member name="T:SettingsAdd">
+            <summary>
+            全局配置的Add节点
+            </summary>
+        </member>
+        <member name="P:SettingsAdd.Key">
+            <summary>
+            全局Settings的Key键值
+            </summary>
+        </member>
+        <member name="P:SettingsAdd.KeyType">
+            <remarks/>
+        </member>
+        <member name="P:SettingsAdd.Caption">
+            <remarks/>
+        </member>
+        <member name="P:SettingsAdd.Default">
+            <summary>
+            全局Settings的Value的默认值
+            </summary>
+        </member>
+        <member name="T:keyType">
+            <remarks/>
+        </member>
+        <member name="F:keyType.Int">
+            <remarks/>
+        </member>
+        <member name="F:keyType.String">
+            <remarks/>
+        </member>
+        <member name="T:SettingsDict">
+            <summary>
+            字典节点
+            </summary>
+        </member>
+        <member name="P:SettingsDict.Key">
+            <remarks/>
+        </member>
+        <member name="P:SettingsDict.Name">
+            <remarks/>
+        </member>
+        <member name="P:SettingsDict.Caption">
+            <remarks/>
+        </member>
+        <member name="T:SettingsDictKey">
+            <summary>
+            插件字典
+            </summary>
+        </member>
+        <member name="P:SettingsDictKey.Name">
+            <remarks/>
+        </member>
+        <member name="P:SettingsDictKey.Value">
+            <remarks/>
+        </member>
+        <member name="P:SettingsDictKey.Caption">
+            <remarks/>
+        </member>
+        <member name="P:SettingsDictKey.Choice">
+            <remarks/>
+        </member>
+        <member name="T:SettingsStructure">
+            <summary>
+            自定义结构节点
+            </summary>
+        </member>
+        <member name="P:SettingsStructure.Declare">
+            <summary>
+            自定义结构定义节点
+            </summary>
+        </member>
+        <member name="P:SettingsStructure.Datas">
+            <summary>
+            自定义结构数据节点
+            </summary>
+        </member>
+        <member name="P:SettingsStructure.SerialData">
+            <summary>
+            一个将数据序列化为DataTable的对象
+            </summary>
+        </member>
+        <member name="P:SettingsStructure.Name">
+            <summary>
+            结构名称
+            </summary>
+        </member>
+        <member name="P:SettingsStructure.Caption">
+            <summary>
+            结构描述
+            </summary>
+        </member>
+        <member name="T:SettingsStructureProperty">
+            <summary>
+            自定义结构的属性定义节点
+            </summary>
+        </member>
+        <member name="P:SettingsStructureProperty.Name">
+            <remarks/>
+        </member>
+        <member name="P:SettingsStructureProperty.Caption">
+            <remarks/>
+        </member>
+        <member name="T:SettingsStructureData">
+            <summary>
+            自定义结构的数据节点
+            </summary>
+        </member>
+        <member name="P:SettingsStructureData.AnyAttr">
+            <remarks/>
+        </member>
+        <member name="T:DataSpaces">
+            <remarks/>
+        </member>
+        <member name="P:DataSpaces.Connection">
+            <remarks/>
+        </member>
+        <member name="P:DataSpaces.Encrypt">
+            <remarks/>
+        </member>
+        <member name="T:DataSpacesConnection">
+            <remarks/>
+        </member>
+        <member name="P:DataSpacesConnection.Name">
+            <remarks/>
+        </member>
+        <member name="P:DataSpacesConnection.DBType">
+            <remarks/>
+        </member>
+        <member name="P:DataSpacesConnection.Server">
+            <remarks/>
+        </member>
+        <member name="P:DataSpacesConnection.Database">
+            <remarks/>
+        </member>
+        <member name="P:DataSpacesConnection.User">
+            <remarks/>
+        </member>
+        <member name="P:DataSpacesConnection.Password">
+            <remarks/>
+        </member>
+        <member name="T:Extensibility">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.Location">
+            <summary>
+            插件本地路径
+            </summary>
+        </member>
+        <member name="P:Extensibility.License">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.Activator">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.Runtime">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.ObjectSpaces">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.Services">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.ExtensionPoint">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.Extension">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.Name">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.SymbolicName">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.Version">
+            <remarks/>
+        </member>
+        <member name="P:Extensibility.StartLevel">
+            <remarks/>
+        </member>
+        <member name="T:ExtensibilityActivator">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityActivator.Type">
+            <remarks/>
+        </member>
+        <member name="T:ExtensibilityAssembly">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityAssembly.Path">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityAssembly.Share">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityAssembly.Dependency">
+            <remarks/>
+        </member>
+        <member name="T:ExtensibilityChannel">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityChannel.Name">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityChannel.ConnectionName">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityChannel.ModelAssembly">
+            <remarks/>
+        </member>
+        <member name="T:ExtensibilityService">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityService.Name">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityService.TypeAndName">
+            <remarks/>
+        </member>
+        <member name="T:ExtensibilityExtensionPoint">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityExtensionPoint.Any">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityExtensionPoint.Name">
+            <remarks/>
+        </member>
+        <member name="T:ExtensibilityExtension">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityExtension.Any">
+            <remarks/>
+        </member>
+        <member name="P:ExtensibilityExtension.Point">
+            <remarks/>
+        </member>
+    </members>
+</doc>
