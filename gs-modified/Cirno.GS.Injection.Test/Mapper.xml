@@ -6,7 +6,7 @@
   <Activator Type="Cirno.GS.Injection.Test.Program"/>
   <!-- The class which inherits interface 'IAddonActivator' from GS.Unitive.Framework. -->
   <Runtime>
-    <Assembly Path="GCirno.GS.Injection.Test.dll" Share="true"/>
+    <Assembly Path="Cirno.GS.Injection.Test.dll" Share="true"/>
   </Runtime>
   <Services>
   <!-- Services included in the dll. -->
