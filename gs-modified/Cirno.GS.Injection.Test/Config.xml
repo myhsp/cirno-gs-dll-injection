@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Settings xmlns="urn:Chinags-Configuration" AddonName="GS.Terminal.Theme">
+<Settings xmlns="urn:Chinags-Configuration" AddonName="Cirno.GS.Injection.Test">
   <Dictionaries>
-    <Dict Name="Theme" Caption="默认主题">
+  <!--<Dict Name="Theme" Caption="默认主题">
       <Key Caption="主题名称" Choice="" Name="ThemeName" Value="Default"/>
-    </Dict>
+    </Dict>-->
   </Dictionaries>
 </Settings>
