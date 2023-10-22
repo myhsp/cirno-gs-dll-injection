@@ -6,3 +6,6 @@
 
 ### Cirno.GS.Injection.Test
 Dll 包含了一个继承 `IAddonActivator` 的类，作为通软加载插件的入口。
+
+### AutoUpdate
+通过对 `AutoUpdate` 的 `MainViewModel.Do` 方法进行修改，阻止其下载更新。
