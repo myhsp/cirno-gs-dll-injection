@@ -39,10 +39,10 @@ namespace Cirno.GS.Injection.Test
                 try
                 {
                     timeLineService.CreateTimeLineTask(DateTime.Now, DateTime.Now.AddSeconds(10.0), 1, true,
-                    new Action(delegate {
+                    new Action<string, string>(delegate (string s, string id) {
                         bannerMsgCtrl.AddBannerMsg(msg);
                     }), null, null,
-                    new Action(delegate {
+                    new Action<string, string>(delegate (string s, string id) {
                         bannerMsgCtrl.RemoveBannerMsg(msg);
                     }), null, null, "BannerMsgTest"
                     );
